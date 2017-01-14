@@ -1,17 +1,64 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <script src="audio.min.js"></script>
+<link rel="stylesheet" type="text/css" href="volume.css">
+<link rel="stylesheet" type="text/css" href="btn.css">
+<link rel="stylesheet" type="text/css" href="html.css">
 <head>
 <title>Antena-Rock</title>
 </head>
 
 <body>
 <script>
+var a;
   audiojs.events.ready(function() {
-    var as = audiojs.createAll();
-  });
-</script>
-<audio src="http://stream.antenarock.sk/antena-hi.mp3" preload="auto" />
+    
+	var player = audiojs.create( document.getElementById("player"), {
+        play: function() {
+            // do something
+        },
+		pause: function() {
+			// do something else
+		},
+		myPlayPause: function() {
+			// http://kolber.github.io/audiojs/docs/
 
+			this.playPause.apply(this);
+		}
+    });
+	
+	player.play();
+	var ele = document.getElementById("volume");
+	ele.value = "100";
+	var vol = ele.value;
+	player.setVolume(vol/100);
+	
+	a = player;
+  });
+
+	function myPlayPause() {
+		 a.playPause.apply(a);
+	}
+	
+  	function myVolume() {
+		var ele = document.getElementById("volume");
+		var vol = ele.value;
+		a.setVolume(vol/100);
+	}
+	function refreshSite() {
+		location.reload();
+	}
+    
+</script>
+<div><img src="antena.jpg"></img><div>
+<div>
+<audio id= "player" src="http://stream.antenarock.sk/antena-hi.mp3" preload="auto" /> </div>
+<br></br>
+<div><input type= "range" id="volume" min="0" max="100" value="0" step="1" onchange="myVolume();"></input></div>
+<br></br>
+<div><input class="btn" type="button" onclick="myPlayPause();" value="Play / Pause"></input></div>
+<br></br>
+<div><input class="btn" type="button" onclick="refreshSite();" value="Refresh"></input></div>
+</body>
 </body>
 </html>
