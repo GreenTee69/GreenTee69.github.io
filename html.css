@@ -1,34 +1,35 @@
 html { 
-	width: 600px;
-	height:600px;
+	width: 100%;
 	font-size: 16px;
 	text-align: center;
 }
 
 body {
-	height:600px;
+	max-width: 650px;
+	height:650;
 	padding:0;
 	color:#444444;
 	font:12px Verdana, Arial, Helvetica, sans-serif;
 	background:BLACK;
-    	background-repeat: no-repeat;
+    background-repeat: no-repeat;
 	background-attachment: fixed;
-	margin-left:auto;
-        margin-right:auto;
-	display: inline-block;
-        text-align: center;
-}
-div {
 	
+    margin-left:auto;
+    margin-right:auto;
 	display: inline-block;
-	text-align: center;
-	width:80%;
-	margin-left:auto;
-        margin-right:auto;
+    text-align: center;
 }
-img {	
+div.center {
+	margin: 0 auto;
+	max-width: 600px;
+}
+img {
+	
 	width:400px;
 }
 .btn {
 	width:400px;
+}
+.audiojs {
+	margin: 0 auto;
 }
