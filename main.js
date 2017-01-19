@@ -14,7 +14,7 @@ audiojs.events.ready(function() {
 });
 	
 var ele = document.getElementById("volume");
-ele.value = "1";
+ele.value = "100";
 var vol = ele.value;
 player.setVolume(vol/100);
 	
