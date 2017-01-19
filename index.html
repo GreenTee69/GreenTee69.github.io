@@ -1,64 +1,41 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Antena-Rock</title>
+<script src="jquery-3.1.1.min.js"></script>
 <script src="audio.min.js"></script>
+<script src="main.js"></script>
 <link rel="stylesheet" type="text/css" href="volume.css">
 <link rel="stylesheet" type="text/css" href="btn.css">
 <link rel="stylesheet" type="text/css" href="html.css">
-<head>
-<title>Antena-Rock</title>
 </head>
 
 <body>
-<script>
-var a;
-  audiojs.events.ready(function() {
-    
-	var player = audiojs.create( document.getElementById("player"), {
-        play: function() {
-            // do something
-        },
-		pause: function() {
-			// do something else
-		},
-		myPlayPause: function() {
-			// http://kolber.github.io/audiojs/docs/
 
-			this.playPause.apply(this);
-		}
-    });
-	
-	player.play();
-	var ele = document.getElementById("volume");
-	ele.value = "100";
-	var vol = ele.value;
-	player.setVolume(vol/100);
-	
-	a = player;
-  });
+<table class="center">
+<tr><td>
+<img id="logo" src="antena.jpg"></img></div>
+</td></tr>
+<tr><td>
+<audio align="middle" id= "player" preload="auto"></audio>
+<ol class="neon-text">
+<li><a href="#" data-src="http://stream.antenarock.sk/antena-hi.mp3" img-src="antena.jpg">Antena Rock - 124 kBps - High</a></li>
+<li><a href="#" data-src="http://stream.antenarock.sk/antena-lo.mp3" img-src="antena.jpg">Antena Rock - 64 kBps - Low</a></li>
+<li><a href="#" data-src="http://217.67.31.66:8000/republika128.mp3" img-src="rockova.jpg">Rockova Republika - 124 kBps - High</a></li>
+<li><a href="#" data-src="http://217.67.31.66:8000/republika64.mp3" img-src="rockova.jpg">Rockova Republika - 64 kBps - Low</a></li>
+</ol>
+</td></tr>
+<tr><td>
+<input type= "range" id="volume" min="0" max="100" value="0" step="1" onchange="myVolume();"></input>
+</td></tr>
+<tr><td>
+<input class="btn" type="button" onclick="myPlayPause();" value="Play / Pause"></input>
+</td></tr>
+<tr><td>
+<input class="btn" type="button" onclick="refreshSite();" value="Refresh"></input>
+</td></tr>
+</table>
 
-	function myPlayPause() {
-		 a.playPause.apply(a);
-	}
-	
-  	function myVolume() {
-		var ele = document.getElementById("volume");
-		var vol = ele.value;
-		a.setVolume(vol/100);
-	}
-	function refreshSite() {
-		location.reload();
-	}
-    
-</script>
-<div><img src="antena.jpg"></img><div>
-<div>
-<audio id= "player" src="http://stream.antenarock.sk/antena-hi.mp3" preload="auto" /> </div>
-<br></br>
-<div><input type= "range" id="volume" min="0" max="100" value="0" step="1" onchange="myVolume();"></input></div>
-<br></br>
-<div><input class="btn" type="button" onclick="myPlayPause();" value="Play / Pause"></input></div>
-<br></br>
-<div><input class="btn" type="button" onclick="refreshSite();" value="Refresh"></input></div>
-</body>
-</body>
-</html>
+</body></html>
