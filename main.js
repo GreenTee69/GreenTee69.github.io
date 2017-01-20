@@ -14,7 +14,7 @@ audiojs.events.ready(function() {
 });
 	
 var ele = document.getElementById("volume");
-ele.value = "1";
+ele.value = "100";
 var vol = ele.value;
 player.setVolume(vol/100);
 	
@@ -60,6 +60,7 @@ $('ol li').click(function(e) {
 	a.play();
 });
 
+<<<<<<< HEAD
 $('.radio').click(function(e) {
 	//e.preventDefault();
 	//this.checked = true;
@@ -69,3 +70,6 @@ $('.radio').click(function(e) {
 );
 
 });
+=======
+});
+>>>>>>> origin/master
