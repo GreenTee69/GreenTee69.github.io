@@ -1,9 +1,9 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
-<title>Antena-Rock</title>
+<title>Antena Rock</title>
 <script src="jquery-3.1.1.min.js"></script>
 <script src="audio.min.js"></script>
 <script src="main.js"></script>
@@ -11,31 +11,41 @@
 <link rel="stylesheet" type="text/css" href="btn.css">
 <link rel="stylesheet" type="text/css" href="html.css">
 </head>
-
 <body>
-
 <table class="center">
-<tr><td>
+<tr><td colspan="2">
 <img id="logo" src="antena.jpg"></img></div>
 </td></tr>
-<tr><td>
+<tr><td colspan="2">
 <audio align="middle" id= "player" preload="auto"></audio>
 <ol class="neon-text">
-<li><a href="#" data-src="http://stream.antenarock.sk/antena-hi.mp3" img-src="antena.jpg">Antena Rock - 124 kBps - High</a></li>
-<li><a href="#" data-src="http://stream.antenarock.sk/antena-lo.mp3" img-src="antena.jpg">Antena Rock - 64 kBps - Low</a></li>
-<li><a href="#" data-src="http://217.67.31.66:8000/republika128.mp3" img-src="rockova.jpg">Rockova Republika - 124 kBps - High</a></li>
-<li><a href="#" data-src="http://217.67.31.66:8000/republika64.mp3" img-src="rockova.jpg">Rockova Republika - 64 kBps - Low</a></li>
+<li><a href="#" data-src-hi="http://stream.antenarock.sk/antena-hi.mp3" data-src-lo="http://stream.antenarock.sk/antena-lo.mp3" img-src="antena.jpg">Antena Rock</a></li>
+<li><a href="#" data-src-hi="http://217.67.31.66:8000/republika128.mp3" data-src-lo="http://217.67.31.66:8000/republika64.mp3" img-src="rockova.jpg">Rockova Republika</a></li>
 </ol>
 </td></tr>
-<tr><td>
+<tr><td colspan="2">
 <input type= "range" id="volume" min="0" max="100" value="0" step="1" onchange="myVolume();"></input>
 </td></tr>
-<tr><td>
+<tr><td colspan="2">
 <input class="btn" type="button" onclick="myPlayPause();" value="Play / Pause"></input>
 </td></tr>
-<tr><td>
+<tr><td colspan="2">
 <input class="btn" type="button" onclick="refreshSite();" value="Refresh"></input>
 </td></tr>
-</table>
+<tr><td>
 
+<div class="speed">
+<input type="radio" name="radio" id="radio1" class="radio" checked="true"/>
+<label for="radio1" class="lbl">124 kBps</label>
+</div>
+
+</td><td>
+
+<div class="speed">
+<input type="radio" name="radio" id="radio2" class="radio" checked/>
+<label for="radio2" class="lbl">64 kBps</label>
+</div>
+
+</td></tr>
+</table>
 </body></html>

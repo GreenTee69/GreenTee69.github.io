@@ -35,19 +35,37 @@ function refreshSite() {
 }
 
 $(function() {
+
+function r() {
+	var r1 = document.getElementById("radio1").checked;
+	if (r1==true) {
+		return "data-src-hi"
+	} else {
+		return "data-src-lo"
+	}
+}
+
 // Load in the first track //view-source:http://kolber.github.io/audiojs/demos/test6.html
-first = $('ol a').attr('data-src');
+first = $('ol a').attr(r());
 $('ol li').first().addClass('playing');
-a.load(first);
-a.play();
+//a.load(first);
+//a.play();
 
 $('ol li').click(function(e) {
 	e.preventDefault();
 	$(this).addClass('playing').siblings().removeClass('playing');
-	a.load($('a', this).attr('data-src'));
+	a.load($('a', this).attr(r()));
 	var img = $('a', this).attr('img-src');
 	document.getElementById('logo').setAttribute('src',img);
 	a.play();
 });
+
+$('.radio').click(function(e) {
+	//e.preventDefault();
+	//this.checked = true;
+	a.load($('a','.playing').attr(r()));
+	a.play();
+}
+);
 
 });
