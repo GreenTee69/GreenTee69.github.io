@@ -48,8 +48,8 @@ function r() {
 // Load in the first track //view-source:http://kolber.github.io/audiojs/demos/test6.html
 first = $('ol a').attr(r());
 $('ol li').first().addClass('playing');
-//a.load(first);
-//a.play();
+a.load(first);
+a.play();
 
 $('ol li').click(function(e) {
 	e.preventDefault();
@@ -60,16 +60,10 @@ $('ol li').click(function(e) {
 	a.play();
 });
 
-<<<<<<< HEAD
 $('.radio').click(function(e) {
-	//e.preventDefault();
-	//this.checked = true;
 	a.load($('a','.playing').attr(r()));
 	a.play();
 }
 );
 
 });
-=======
-});
->>>>>>> origin/master
