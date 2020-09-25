@@ -7,7 +7,7 @@ function countExp (t) {var e = 0;$.each(t.amounts,function(i,q) {if (between(i,1
 
 function setOases() {
 $.ajax({
-  method: "POST",beforeSend: function(request) {request.setRequestHeader("x-version", "819.9");request.setRequestHeader("authorization", "Bearer "+Travian.nonvotingUnsheathingCommunicating);},
+  method: "POST",beforeSend: function(request) {request.setRequestHeader("x-version", "819.9");request.setRequestHeader("authorization", "Bearer "+Travian.unsetMinimizingParchesBallooned);},
   contentType: "application/json; charset=UTF-8", accept: "application/json, text/javascript, */*; q=0.01", url: "/api/v1/ajax/mapPositionData",
   data: '{"data":{"x":54,"y":-127,"zoomLevel":2,"ignorePositions":[]}}'}).done(
   function( data ) {dat(data);});}
@@ -20,7 +20,7 @@ function dat(data) {
   $.each(oases, function(i,q) {setTimeout(function () {getO(q.position,oases.length==(i+1));$("#oaCounter").text((i+1)+"/"+oases.length)},delay*i);});
 }
 function getO(p,bool) {
-  $.ajax({method: "POST",beforeSend: function(request) {request.setRequestHeader("x-version", "819.9");request.setRequestHeader("authorization", "Bearer "+Travian.nonvotingUnsheathingCommunicating);},
+  $.ajax({method: "POST",beforeSend: function(request) {request.setRequestHeader("x-version", "819.9");request.setRequestHeader("authorization", "Bearer "+Travian.unsetMinimizingParchesBallooned);},
   contentType: "application/json; charset=UTF-8", accept: "application/json, text/javascript, */*; q=0.01", url: "/api/v1/ajax/viewTileDetails",
   data: JSON.stringify(p)}).done(function( data ) {
     var kk = {position: p, exp: oasExp(data)}; kam.push(kk);
