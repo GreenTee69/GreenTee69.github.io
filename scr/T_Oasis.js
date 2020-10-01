@@ -4,10 +4,20 @@ function multiReplace(s,e) {e.forEach(function(q) {s = s.split(q).join('');});re
 function oasExp(d){d=d.html;d=d.substr(d.indexOf("amounts"));d=d.substr(0,d.indexOf("}]"));d=JSON.parse('{"'+d);return countExp(d)}
 function between(x,min,max){return x>=min&&x<=max}
 function countExp (t) {var e = 0;$.each(t.amounts,function(i,q) {if (between(i,1,4)) e += q*1;if (between(i,5,6)) e += q*2;if (between(i,7,9)) e += q*3;if (i==10) e += q*5;});return e;}
-
+function findBearer() {
+    var ret = "";
+   $.each(Travian, function(i,q) {
+       if (typeof q != "string") return true;
+       if (q.length != 32) return true; /*Bearer hash ma dufam vzdy 32 char*/
+       console.log(i, " - " , q);
+       ret = q;
+   });
+   return ret;
+}
+var bearerHash;
 function setOases() {
 $.ajax({
-  method: "POST",beforeSend: function(request) {request.setRequestHeader("x-version", "819.9");request.setRequestHeader("authorization", "Bearer "+Travian.unsetMinimizingParchesBallooned);},
+  method: "POST",beforeSend: function(request) {request.setRequestHeader("x-version", "819.9");request.setRequestHeader("authorization", "Bearer "+bearerHash);},
   contentType: "application/json; charset=UTF-8", accept: "application/json, text/javascript, */*; q=0.01", url: "/api/v1/ajax/mapPositionData",
   data: '{"data":{"x":54,"y":-127,"zoomLevel":2,"ignorePositions":[]}}'}).done(
   function( data ) {dat(data);});}
@@ -20,7 +30,7 @@ function dat(data) {
   $.each(oases, function(i,q) {setTimeout(function () {getO(q.position,oases.length==(i+1));$("#oaCounter").text((i+1)+"/"+oases.length)},delay*i);});
 }
 function getO(p,bool) {
-  $.ajax({method: "POST",beforeSend: function(request) {request.setRequestHeader("x-version", "819.9");request.setRequestHeader("authorization", "Bearer "+Travian.unsetMinimizingParchesBallooned);},
+  $.ajax({method: "POST",beforeSend: function(request) {request.setRequestHeader("x-version", "819.9");request.setRequestHeader("authorization", "Bearer "+bearerHash);},
   contentType: "application/json; charset=UTF-8", accept: "application/json, text/javascript, */*; q=0.01", url: "/api/v1/ajax/viewTileDetails",
   data: JSON.stringify(p)}).done(function( data ) {
     var kk = {position: p, exp: oasExp(data)}; kam.push(kk);
@@ -28,6 +38,7 @@ function getO(p,bool) {
   });
 }
 function setLayout() {
+	bearerHash = findBearer();
   $('#sidebarBoxOasisList').remove();
   $('#sidebarBoxOasisTable').remove();
   makeDiv("Oazy","sidebarBoxOasisList");
