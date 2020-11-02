@@ -19,7 +19,7 @@ function setOases() {
 $.ajax({
   method: "POST",beforeSend: function(request) {request.setRequestHeader("x-version", "819.9");request.setRequestHeader("authorization", "Bearer "+bearerHash);},
   contentType: "application/json; charset=UTF-8", accept: "application/json, text/javascript, */*; q=0.01", url: "/api/v1/ajax/mapPositionData",
-  data: '{"data":{"x":54,"y":-127,"zoomLevel":2,"ignorePositions":[]}}'}).done(
+  data: '{"data":{"x":'+$('#oax').val()+',"y":'+$('#oay').val()+',"zoomLevel":2,"ignorePositions":[]}}'}).done(
   function( data ) {dat(data);});}
 
 function dat(data) {
@@ -43,7 +43,7 @@ function setLayout() {
   $('#sidebarBoxOasisTable').remove();
   makeDiv("Oazy","sidebarBoxOasisList");
   $('#sidebarBoxLinklist').hide();$('#sidebarBoxAlliance').hide();
-  $('#sidebarBoxOasisList').find('div.content').append($('<p>X<input id="oax" value="54" type="text" style="width: 40px;margin-left: 10px;margin-right: 10px;text-align:right;">Y <input id="oay" value="-127" type="text" style="width: 40px;margin-left: 10px;margin-right: 10px;text-align:right;"></p><p>Delay <input id="oad" value="100" type="text" style="width: 50px;margin-left: 10px;margin-right: 10px;text-align:right;"></p><button id="setOasesButt" type="button" class="textButtonV1 green">Start</button><span id="oaCounter" style="font-weight: bold;margin-left: 36px;"></span>'));
+  $('#sidebarBoxOasisList').find('div.content').append($('<p>X<input id="oax" value="98" type="text" style="width: 40px;margin-left: 10px;margin-right: 10px;text-align:right;">Y <input id="oay" value="-89" type="text" style="width: 40px;margin-left: 10px;margin-right: 10px;text-align:right;"></p><p>Delay <input id="oad" value="100" type="text" style="width: 50px;margin-left: 10px;margin-right: 10px;text-align:right;"></p><button id="setOasesButt" type="button" class="textButtonV1 green">Start</button><span id="oaCounter" style="font-weight: bold;margin-left: 36px;"></span>'));
   $('#setOasesButt').click(function() {setOases()});
 }
 function makeDiv(title, divID) {
